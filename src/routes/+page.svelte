@@ -1,4 +1,6 @@
 <script lang="ts">
+	import Standings from "../components/Standings.svelte";
+
 </script>
 
 <svelte:head>
@@ -14,6 +16,8 @@
 	<h2>
 		Eliteserie-tabellen basert på poeng i snitt så langt i 2025-sesongen.
 	</h2>
+
+	<Standings />
 </section>
 
 <style>
