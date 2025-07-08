@@ -6,15 +6,17 @@ export type Team = {
     gamesPlayed: number;
     points: number;
     averagePoints: number;
+    estimatedPoints: number;
     goalsFor: number;
     goalsAgainst: number;
     goalDifference: number;
 };
 
-export function createTeam(data: Omit<Team, 'gamesPlayed' | 'points' | 'averagePoints' | 'goalDifference'>): Team {
+export function createTeam(data: Omit<Team, 'gamesPlayed' | 'points' | 'averagePoints' | 'estimatedPoints' | 'goalDifference'>): Team {
     const gamesPlayed = data.wins + data.draws + data.losses;
     const points = data.wins * 3 + data.draws;
     const averagePoints = gamesPlayed === 0 ? 0 : round(points / gamesPlayed, 2);
+    const estimatedPoints = round(averagePoints * 30, 0); 
     const goalDifference = data.goalsFor - data.goalsAgainst;
 
     return {
@@ -22,6 +24,7 @@ export function createTeam(data: Omit<Team, 'gamesPlayed' | 'points' | 'averageP
         gamesPlayed,
         points,
         averagePoints,
+        estimatedPoints,
         goalDifference
     };
 }

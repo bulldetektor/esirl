@@ -9,11 +9,11 @@
 		{ title: 'Vunnet', abbr: 'V' },
 		{ title: 'Uavgjort', abbr: 'U' },
 		{ title: 'Tapt', abbr: 'T' },
-		{ title: 'Scoret', abbr: '+' },
-		{ title: 'Sluppet Inn', abbr: '-' },
+		{ title: 'Mål', abbr: 'M' },
 		{ title: 'Målforskjell', abbr: '+/-' },
 		{ title: 'Poeng', abbr: 'P' },
-		{ title: 'Snitt', abbr: 'Sn' }
+		{ title: 'Est Poeng', abbr: 'E' }, 
+		{ title: 'Snitt', abbr: 'Sn' },
 	];
 </script>
 
@@ -59,10 +59,7 @@
 							<span>{team.losses}</span>
 						</td>
 						<td class="">
-							<span>{team.goalsFor}</span>
-						</td>
-						<td class="">
-							<span>{team.goalsAgainst}</span>
+							<span>{team.goalsFor}-{team.goalsAgainst}</span>
 						</td>
 						<td class="">
 							<span>{team.goalDifference}</span>
@@ -70,8 +67,11 @@
 						<td class="">
 							<span>{team.points}</span>
 						</td>
+						<td class="italic">
+							<span>{team.estimatedPoints}</span>
+						</td>
 						<td class="">
-							<span>{team.averagePoints.toFixed(2)}</span>
+							<span>{team.averagePoints}</span>
 						</td>
 					</tr>
 				{/each}
