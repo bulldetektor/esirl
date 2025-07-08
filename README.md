@@ -1,38 +1,24 @@
-# sv
+# Eliteserien 2025 IRL
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
+Ettersom NFF og klubbene i Eliteserien har valgt å tilpasse terminlisten for å optimalisere for Europacup-spill, så er det en vill spredning av antall spilte kamper for de ulike lagene. Dermed blir det vanskelig å vite hvilket lag som _egentlig_ leder serien. Den riktigste måten å se status for Eliteserien 2025 er (IMHO) å beregne hvor mange poeng hvert lag har i snitt så langt. Dvs antall poeng dividert på antall kamper.
 
-## Creating a project
+Dette prosjektet viser snitt-tabellen for Eliteserien 2025.
 
-If you're seeing this, you've probably already done this step. Congrats!
-
-```bash
-# create a new project in the current directory
-npx sv create
-
-# create a new project in my-app
-npx sv create my-app
-```
-
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+## Utvikling
 
 ```bash
-npm run dev
+pm dev
 
 # or start the server and open the app in a new browser tab
-npm run dev -- --open
+pm dev -- --open
 ```
 
-## Building
+## Bygging
 
-To create a production version of your app:
+For å lage en prod-versjon av app'en:
 
 ```bash
-npm run build
+pm build
 ```
 
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
+Kjør `pm preview` for å se prod-versjon av app'en. 
