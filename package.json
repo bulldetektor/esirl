@@ -51,5 +51,6 @@
 	},
 	"dependencies": {
 		"@upstash/redis": "^1.35.1",
+		"cheerio": "^1.1.0"
 	}
 }

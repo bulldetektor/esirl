@@ -62,6 +62,9 @@
 					<th title="Vunnet" class="p-3 text-left">Vunnet</th>
 					<th title="Uavgjort" class="p-3 text-left">Uavgjort</th>
 					<th title="Tapt" class="p-3 text-left">Tapt</th>
+					<th title="Scoret" class="p-3 text-left">Scoret</th>
+					<th title="Sluppet Inn" class="p-3 text-left">Sluppet Inn</th>
+					<th title="Målforskjell" class="p-3 text-left">Målforskjell</th>
 					<th title="Poeng" class="p-3 text-left">Poeng</th>
 					<th title="Snitt" class="p-3 text-left">Snitt</th>
 				</tr>
@@ -86,6 +89,15 @@
 						</td>
 						<td class="px-3 py-2 text-left">
 							<span>{team.losses}</span>
+						</td>
+						<td class="px-3 py-2 text-left">
+							<span>{team.goalsFor}</span>
+						</td>
+						<td class="px-3 py-2 text-left">
+							<span>{team.goalsAgainst}</span>
+						</td>
+						<td class="px-3 py-2 text-left">
+							<span>{team.goalDifference}</span>
 						</td>
 						<td class="px-3 py-2 text-left">
 							<span>{team.points}</span>

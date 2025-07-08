@@ -2,6 +2,12 @@
 	import '../app.css';
 
 	let { children } = $props();
+
+	function clearCache() {
+		fetch('/api/standings', {
+			method: 'DELETE'
+		});
+	}
 </script>
 
 <div class="app">
@@ -12,7 +18,7 @@
 
 	<footer>
 		<p>
-			Copyright &copy; 2025  //  Bulldetektor  //
+			Copyright &copy; 2025  //  Bulldetektor  <button onclick={clearCache}>//</button>  All rights reserved 
 		</p>
 	</footer>
 </div>
