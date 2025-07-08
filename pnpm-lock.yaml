@@ -11,6 +11,9 @@ importers:
       '@upstash/redis':
         specifier: ^1.35.1
         version: 1.35.1
+      '@vercel/analytics':
+        specifier: ^1.5.0
+        version: 1.5.0(@sveltejs/kit@2.22.2(@sveltejs/vite-plugin-svelte@5.1.0(svelte@5.35.4)(vite@6.3.5(jiti@2.4.2)(lightningcss@1.30.1)))(svelte@5.35.4)(vite@6.3.5(jiti@2.4.2)(lightningcss@1.30.1)))(svelte@5.35.4)
       cheerio:
         specifier: ^1.1.0
         version: 1.1.0
@@ -700,6 +703,32 @@ packages:
 
   '@upstash/redis@1.35.1':
     resolution: {integrity: sha512-sIMuAMU9IYbE2bkgDby8KLoQKRiBMXn0moXxqLvUmQ7VUu2CvulZLtK8O0x3WQZFvvZhU5sRC2/lOVZdGfudkA==}
+
+  '@vercel/analytics@1.5.0':
+    resolution: {integrity: sha512-MYsBzfPki4gthY5HnYN7jgInhAZ7Ac1cYDoRWFomwGHWEX7odTEzbtg9kf/QSo7XEsEAqlQugA6gJ2WS2DEa3g==}
+    peerDependencies:
+      '@remix-run/react': ^2
+      '@sveltejs/kit': ^1 || ^2
+      next: '>= 13'
+      react: ^18 || ^19 || ^19.0.0-rc
+      svelte: '>= 4'
+      vue: ^3
+      vue-router: ^4
+    peerDependenciesMeta:
+      '@remix-run/react':
+        optional: true
+      '@sveltejs/kit':
+        optional: true
+      next:
+        optional: true
+      react:
+        optional: true
+      svelte:
+        optional: true
+      vue:
+        optional: true
+      vue-router:
+        optional: true
 
   '@vitest/browser@3.2.4':
     resolution: {integrity: sha512-tJxiPrWmzH8a+w9nLKlQMzAKX/7VjFs50MWgcAj7p9XQ7AQ9/35fByFYptgPELyLw+0aixTnC4pUWV+APcZ/kw==}
@@ -2325,6 +2354,11 @@ snapshots:
   '@upstash/redis@1.35.1':
     dependencies:
       uncrypto: 0.1.3
+
+  '@vercel/analytics@1.5.0(@sveltejs/kit@2.22.2(@sveltejs/vite-plugin-svelte@5.1.0(svelte@5.35.4)(vite@6.3.5(jiti@2.4.2)(lightningcss@1.30.1)))(svelte@5.35.4)(vite@6.3.5(jiti@2.4.2)(lightningcss@1.30.1)))(svelte@5.35.4)':
+    optionalDependencies:
+      '@sveltejs/kit': 2.22.2(@sveltejs/vite-plugin-svelte@5.1.0(svelte@5.35.4)(vite@6.3.5(jiti@2.4.2)(lightningcss@1.30.1)))(svelte@5.35.4)(vite@6.3.5(jiti@2.4.2)(lightningcss@1.30.1))
+      svelte: 5.35.4
 
   '@vitest/browser@3.2.4(playwright@1.53.2)(vite@6.3.5(jiti@2.4.2)(lightningcss@1.30.1))(vitest@3.2.4)':
     dependencies:

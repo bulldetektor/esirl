@@ -1,6 +1,10 @@
 <script lang="ts">
 	import '../app.css';
+	import { dev } from '$app/environment';
+	import { injectAnalytics } from '@vercel/analytics/sveltekit';
 
+	injectAnalytics({ mode: dev ? 'development' : 'production' });
+	
 	let { children } = $props();
 
 	async function clearCache() {
@@ -9,20 +13,21 @@
 		});
 		if (response.ok) {
 			const result = await response.json();
-			console.log("Cache cleared", result);
+			console.log('Cache cleared', result);
 		}
 	}
 </script>
 
 <div class="app">
-
 	<main>
 		{@render children()}
 	</main>
 
 	<footer>
 		<p class="text-center text-sm">
-			Copyright &copy; 2025  //  Bulldetektor  <button onclick={clearCache} class="cursor-pointer">//</button>  All rights reserved 
+			Copyright &copy; 2025 // Bulldetektor <button onclick={clearCache} class="cursor-pointer"
+				>//</button
+			> All rights reserved
 		</p>
 	</footer>
 </div>
