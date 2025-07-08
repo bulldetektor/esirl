@@ -1,72 +1,53 @@
 <script lang="ts">
-	type Team = {
-		name: string;
-		gamesPlayed: number;
-		wins: number;
-		draws: number;
-		losses: number;
-		points: number;
-		averagePoints: number;
-	};
+	// import { createTeam } from '$lib/types/team';
+	import type { Team } from '$lib/types/team';
+	export let standings: Team[];
+	// let standings: Team[] = [
+	// 	createTeam({
+	// 		name: 'Viking',
+	// 		wins: 11,
+	// 		draws: 3,
+	// 		losses: 1
+	// 	}),
+	// 	createTeam({
+	// 		name: 'Brann',
+	// 		wins: 8,
+	// 		draws: 3,
+	// 		losses: 3
+	// 	}),
+	// 	createTeam({
+	// 		name: 'Tromsø',
+	// 		wins: 8,
+	// 		draws: 1,
+	// 		losses: 3
+	// 	}),
+	// 	createTeam({
+	// 		name: 'Rosenborg',
+	// 		wins: 6,
+	// 		draws: 5,
+	// 		losses: 3
+	// 	}),
+	// 	createTeam({
+	// 		name: 'Strømsgodset',
+	// 		wins: 2,
+	// 		draws: 0,
+	// 		losses: 10
+	// 	}),
+	// 	createTeam({
+	// 		name: 'Haugesund',
+	// 		wins: 0,
+	// 		draws: 2,
+	// 		losses: 11
+	// 	}),
+	// 	createTeam({
+	// 		name: 'Kristiansund',
+	// 		wins: 5,
+	// 		draws: 3,
+	// 		losses: 6
+	// 	}),
+	// ];
 
-	function createTeam(data: Omit<Team, 'gamesPlayed' | 'points' | 'averagePoints'>): Team {
-		const gamesPlayed = data.wins + data.draws + data.losses;
-        const points = data.wins * 3 + data.draws;
-		const averagePoints = gamesPlayed === 0 ? 0 : points / gamesPlayed;
-
-		return {
-			...data,
-            gamesPlayed,
-			points,
-			averagePoints
-		};
-	}
-	let standings: Team[] = [
-		createTeam({
-			name: 'Viking',
-			wins: 11,
-			draws: 3,
-			losses: 1
-		}),
-		createTeam({
-			name: 'Brann',
-			wins: 8,
-			draws: 3,
-			losses: 3
-		}),
-		createTeam({
-			name: 'Tromsø',
-			wins: 8,
-			draws: 1,
-			losses: 3
-		}),
-        createTeam({
-			name: 'Rosenborg',
-			wins: 6,
-			draws: 5,
-			losses: 3
-		}),
-		createTeam({
-			name: 'Strømsgodset',
-			wins: 2,
-			draws: 0,
-			losses: 10
-		}),
-        createTeam({
-			name: 'Haugesund',
-			wins: 0,
-			draws: 2,
-			losses: 11
-		}),
-        createTeam({
-			name: 'Kristiansund',
-			wins: 5,
-			draws: 3,
-			losses: 6
-		}),
-	];
-
-    standings = standings.sort((a, b) => b.averagePoints - a.averagePoints);
+	// standings = standings.sort((a, b) => b.averagePoints - a.averagePoints);
 </script>
 
 <div class="container mx-auto rounded-md p-2 sm:p-4 dark:bg-gray-50 dark:text-gray-800">

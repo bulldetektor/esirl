@@ -1,6 +1,6 @@
 <script lang="ts">
-	import Standings from "../components/Standings.svelte";
-
+	import Standings from "$lib/components/Standings.svelte";
+	export let data;
 </script>
 
 <svelte:head>
@@ -17,7 +17,7 @@
 		Eliteserie-tabellen basert på poeng i snitt så langt i 2025-sesongen.
 	</h2>
 
-	<Standings />
+	<Standings standings={data.standings} />
 </section>
 
 <style>
