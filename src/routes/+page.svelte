@@ -13,11 +13,13 @@
 		Eliteserien 2025 IRL
 	</h1>
 
-	<h2>
-		Eliteserie-tabellen basert på poeng i snitt så langt i 2025-sesongen.
-	</h2>
-
 	<Standings standings={data.standings} />
+	
+	<p class="px-4">
+		Eliteserie-tabellen basert på poeng i snitt så langt i 2025-sesongen. 
+		Kolonnen "Est Poeng" angir hvor mange poeng lagene vil ende opp med dersom de opprettholder poengsnittet over 30 kamper. 
+	</p>
+
 </section>
 
 <style>
