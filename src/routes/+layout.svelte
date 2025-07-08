@@ -3,10 +3,14 @@
 
 	let { children } = $props();
 
-	function clearCache() {
-		fetch('/api/standings', {
+	async function clearCache() {
+		const response = await fetch('/api/standings', {
 			method: 'DELETE'
 		});
+		if (response.ok) {
+			const result = await response.json();
+			console.log("Cache cleared", result);
+		}
 	}
 </script>
 
@@ -18,7 +22,7 @@
 
 	<footer>
 		<p>
-			Copyright &copy; 2025  //  Bulldetektor  <button onclick={clearCache}>//</button>  All rights reserved 
+			Copyright &copy; 2025  //  Bulldetektor  <button onclick={clearCache} class="cursor-pointer">//</button>  All rights reserved 
 		</p>
 	</footer>
 </div>
