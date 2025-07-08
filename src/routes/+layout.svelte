@@ -21,7 +21,7 @@
 	</main>
 
 	<footer>
-		<p>
+		<p class="text-center text-sm">
 			Copyright &copy; 2025  //  Bulldetektor  <button onclick={clearCache} class="cursor-pointer">//</button>  All rights reserved 
 		</p>
 	</footer>
