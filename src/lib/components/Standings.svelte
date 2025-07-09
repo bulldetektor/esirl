@@ -62,7 +62,7 @@
 							<span>{team.goalsFor}-{team.goalsAgainst}</span>
 						</td>
 						<td class="">
-							<span>{team.goalDifference}</span>
+							<span>{team.goalDifference > 0 ? '+' : ''}{team.goalDifference}</span>
 						</td>
 						<td class="">
 							<span>{team.points}</span>
