@@ -12,8 +12,8 @@
 		{ title: 'Mål', abbr: 'M' },
 		{ title: 'Målforskjell', abbr: '+/-' },
 		{ title: 'Poeng', abbr: 'P' },
-		{ title: 'Est Poeng', abbr: 'E' }, 
-		{ title: 'Snitt', abbr: 'Sn' },
+		{ title: 'Est Poeng', abbr: 'E' },
+		{ title: 'Snitt', abbr: 'Sn' }
 	];
 </script>
 
@@ -24,7 +24,7 @@
 			<thead class="rounded-t-lg">
 				<tr class="text-center">
 					{#each headers as header}
-						<th class="px-2 {header.css}" title={header.title}>
+						<th class="border-b px-2 py-2 font-normal bg-slate-200 {header.css}" title={header.title}>
 							<span class="block md:hidden">{header.abbr ?? header.title}</span>
 							<span class="hidden md:block">{header.label ?? header.title}</span>
 						</th>
@@ -34,11 +34,13 @@
 			<tbody>
 				{#each standings as team, index}
 					<tr
-						class="border-opacity-20 border-b text-center {index === standings.length - 3
-							? 'bg-orange-100'
-							: index >= standings.length - 2
-								? 'bg-red-100'
-								: 'even:bg-gray-200'}"
+						class="border-opacity-20 border-b text-center {index === 0
+							? 'font-bold'
+							: index === standings.length - 3
+								? 'bg-orange-100'
+								: index >= standings.length - 2
+									? 'bg-red-100'
+									: 'even:bg-slate-200'}"
 					>
 						<td class="py-2">
 							<span>{index + 1}</span>
