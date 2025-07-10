@@ -16,14 +16,14 @@
 		{ title: 'Snitt', abbr: 'Sn', mobile: true }
 	];
 
-	const abbrDescriptions = headers
-		.filter((h) => h.abbr && h.title)
+	const mobileAbbrDescriptions = headers
+		.filter((h) => h.mobile && h.abbr && h.title)
 		.map((h) => `${h.abbr} = ${h.title.toLowerCase()}`)
 		.join(', ');
 </script>
 
 <!-- Mobile -->
-<div class="container mx-auto pb-4 md:hidden">
+<div class="container mx-auto pb-4 md:hidden flex flex-col gap-2">
 	<table class="min-w-full text-sm">
 		<thead>
 			<tr class="text-center">
@@ -70,8 +70,13 @@
 			{/each}
 		</tbody>
 	</table>
-	<div class="block pt-2 text-xs text-gray-500 italic md:hidden">
-		{abbrDescriptions}
+	<div class="block text-xs text-gray-500 italic md:hidden">
+		{mobileAbbrDescriptions}
+	</div>
+	<div class="text-xs text-gray-500 italic">
+		Kilde: <a class="" href="https://www.eliteserien.no/tabell" target="_blank"
+			>https://www.eliteserien.no/tabell</a
+		>
 	</div>
 </div>
 <!-- Desktop -->
@@ -140,7 +145,7 @@
 		</table>
 	</div>
 
-	<div class="pt-1 text-xs text-gray-500 italic md:text-right">
+	<div class="pt-1 text-xs text-gray-500 italic text-right">
 		Kilde: <a class="" href="https://www.eliteserien.no/tabell" target="_blank"
 			>https://www.eliteserien.no/tabell</a
 		>
