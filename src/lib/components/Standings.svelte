@@ -7,7 +7,7 @@
 
 	const headers = [
 		{ title: 'Plassering', abbr: '#', label: '#', mobile: true },
-		{ title: 'Offisiell plassering', abbr: '', label: '', mobile: true },
+		{ title: 'Offisiell plassering', abbr: '', label: '', mobile: false },
 		{ title: 'Diff', abbr: 'D', label: 'Diff', css: 'text-center', mobile: true },
 		{ title: 'Lag', css: 'text-left', mobile: true },
 		{ title: 'Spilt', abbr: 'Sp', mobile: true },
@@ -50,13 +50,17 @@
 								? 'bg-red-100'
 								: 'even:bg-slate-200'}"
 				>
+					<td class="px-2 py-1">
+						{index + 1}
+					</td>
 					<td class="text-center">
-						<div class="flex items-center justify-center gap-0.5 whitespace-nowrap">
-							{index + 1}
+						<div class="flex justify-center">
 							{#if team.officialStanding > index + 1}
-								<UpIcon class="text-green-500" width="12" height="12" />
+								<UpIcon class="text-green-800" width="16" height="16" />
 							{:else if team.officialStanding < index + 1}
-								<DownIcon class="text-red-500" width="12" height="12" />
+								<DownIcon class="text-red-800" width="16" height="16" />
+							{:else}
+								<RightIcon class="text-gray-800" width="16" height="16" />
 							{/if}
 						</div>
 					</td>

@@ -9,12 +9,16 @@ export function parseHtml(html: string): Team[] {
         const cols = $(el).find('td');
 
         const officialStanding = parseInt($(cols[0]).text(), 10);
-        const name = $(cols[1]).find('span.table__typo--full').text().trim();
+        let name = $(cols[1]).find('span.table__typo--full').text().trim();
         const wins = parseInt($(cols[3]).text(), 10);
         const draws = parseInt($(cols[4]).text(), 10);
         const losses = parseInt($(cols[5]).text(), 10);
         const goalsFor = parseInt($(cols[6]).text(), 10);
         const goalsAgainst = parseInt($(cols[7]).text(), 10);
+
+        if (name === 'Sandefjord Fotball') {
+            name = 'Sandefjord';
+        }
 
         if (name && !isNaN(wins) && !isNaN(draws) && !isNaN(losses)) {
             standings.push(createTeam({ name, wins, draws, losses, goalsFor, goalsAgainst, officialStanding }));
