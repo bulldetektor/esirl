@@ -5,7 +5,7 @@ import { Redis } from '@upstash/redis';
 
 export const prerender = false;
 
-const CACHE_KEY = "standings-2025";
+const CACHE_KEY = "standings-2026";
 const SOURCE_URL = "https://www.eliteserien.no/tabell";
 
 // Initialize Redis
@@ -28,7 +28,7 @@ export async function GET() {
     if (!response.ok) {
         throw new Error(`Failed to fetch standings from ${SOURCE_URL}: ${response.status} ${response.statusText}`);
     }
-    
+
     const html = await response.text();
     const standings = parseHtml(html);
 
@@ -45,7 +45,7 @@ export async function GET() {
     // Store the result in Redis
     const expirationInSeconds = 60 * 10;
     await redis.set(CACHE_KEY, standings, { ex: expirationInSeconds });
-   
+
     // Return the result in the response
     return json(standings);
 };
@@ -54,5 +54,5 @@ export async function DELETE() {
     // Delete the cached data
     await redis.del(CACHE_KEY);
 
-    return json({ message: `Cache cleared for ${CACHE_KEY}` }); 
+    return json({ message: `Cache cleared for ${CACHE_KEY}` });
 };

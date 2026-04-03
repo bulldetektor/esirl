@@ -1,9 +1,14 @@
 <script lang="ts">
 	import type { Team } from '$lib/types/team';
+	import UpIcon from '$lib/icons/up.svg?component';
+	import DownIcon from '$lib/icons/down.svg?component';
+	import RightIcon from '$lib/icons/right.svg?component';
 	export let standings: Team[];
 
 	const headers = [
 		{ title: 'Plassering', abbr: '#', label: '#', mobile: true },
+		{ title: 'Offisiell plassering', abbr: '', label: '', mobile: true },
+		{ title: 'Diff', abbr: 'D', label: 'Diff', css: 'text-center', mobile: true },
 		{ title: 'Lag', css: 'text-left', mobile: true },
 		{ title: 'Spilt', abbr: 'Sp', mobile: true },
 		{ title: 'Vunnet', abbr: 'V' },
@@ -23,7 +28,7 @@
 </script>
 
 <!-- Mobile -->
-<div class="container mx-auto pb-4 md:hidden flex flex-col gap-2">
+<div class="container mx-auto flex flex-col gap-2 pb-4 md:hidden">
 	<table class="min-w-full text-sm">
 		<thead>
 			<tr class="text-center">
@@ -45,10 +50,17 @@
 								? 'bg-red-100'
 								: 'even:bg-slate-200'}"
 				>
-					<td class="py-2">
-						<span>{index + 1}</span>
+					<td class="text-center">
+						<div class="flex items-center justify-center gap-0.5 whitespace-nowrap">
+							{index + 1}
+							{#if team.officialStanding > index + 1}
+								<UpIcon class="text-green-500" width="12" height="12" />
+							{:else if team.officialStanding < index + 1}
+								<DownIcon class="text-red-500" width="12" height="12" />
+							{/if}
+						</div>
 					</td>
-					<td class="text-left px-2">
+					<td class="px-2 text-left">
 						<span>{team.name}</span>
 					</td>
 					<td class="">
@@ -80,7 +92,7 @@
 	</div>
 </div>
 <!-- Desktop -->
-<div class="mx-auto hidden md:block rounded-md p-4 container">
+<div class="container mx-auto hidden rounded-md p-4 md:block">
 	<div class="overflow-x-auto">
 		<table class="min-w-full text-sm">
 			<thead class="rounded-t-lg">
@@ -106,8 +118,22 @@
 									? 'bg-red-100'
 									: 'even:bg-slate-200'}"
 					>
-						<td class="py-2">
-							<span>{index + 1}</span>
+						<td class="px-1 py-2">
+							{index + 1}
+						</td>
+						<td class="pl-0 text-center">
+							({team.officialStanding})
+						</td>
+						<td class="text-center">
+							<div class="flex justify-center">
+								{#if team.officialStanding > index + 1}
+									<UpIcon class="text-green-800" width="16" height="16" />
+								{:else if team.officialStanding < index + 1}
+									<DownIcon class="text-red-800" width="16" height="16" />
+								{:else}
+									<RightIcon class="text-gray-800" width="16" height="16" />
+								{/if}
+							</div>
 						</td>
 						<td class="text-left">
 							<span>{team.name}</span>
@@ -145,7 +171,7 @@
 		</table>
 	</div>
 
-	<div class="pt-1 text-xs text-gray-500 italic text-right">
+	<div class="pt-1 text-right text-xs text-gray-500 italic">
 		Kilde: <a class="" href="https://www.eliteserien.no/tabell" target="_blank"
 			>https://www.eliteserien.no/tabell</a
 		>

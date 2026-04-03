@@ -1,6 +1,6 @@
 <script lang="ts">
 	import '../app.css';
-	
+
 	let { children } = $props();
 
 	async function clearCache() {
@@ -21,7 +21,7 @@
 
 	<footer>
 		<p class="text-center text-sm">
-			Copyright &copy; 2025 // Bulldetektor <button onclick={clearCache} class="cursor-pointer"
+			Copyright &copy; 2026 // Bulldetektor <button onclick={clearCache} class="cursor-pointer"
 				>//</button
 			> All rights reserved
 		</p>
